@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhav's Portfolio </title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/b618d93927.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+     <div class="container">
+        <nav>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Service</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li> 
+                <i class="fa-solid fa-times" onclick="closemenu()"></i> 
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Web Developer & Software Developer</p>
+            <h1>Hi,I'm <span>Madhav Dubey</span></br> from Kathua,</br> Jammu & Kashmir</h1>
+        </div>
+     </div>
+    </div>
+ <!-- <-------------------ABOUT SECTION -------------------------> 
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="backgroundimage1.png" alt="Madhav's Image">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>
+                <p>Hello! I'm Madhav Dubey,a web developer enthusiast with a passion for crafting visually appealing 
+                    websites. My recent project incudes,an Amazon Clone using HTML and CSS and a Hospital
+                     Managment System.I am committed to continuous learning and improving my skills to stay updated 
+                     with the latest web development trends and technologies.While I'm still growing my experience as a 
+                     fresher, and I am dedicated to delivering the quality work and collobrating effectively.So, let's connect 
+                     and explore new opportunities together!</p>
+                
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span><br></li>
+                            <li>Front-end & <br> Back-end (Beginner)</li>
+                            <li><span>Qualities</span></br></li>
+                            <li>Team Work &<br> LeaderShip Quality</li>   
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li>Fresher<br>(0 Experience)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022-present</span><br></li>
+                            <li>B.Tech in CSE<br>(Artificial Intelligence & Machine Learning)</li>
+                            <li><span>2020-2022</span></br></li>
+                            <li>Senior Secondary <br> From Govt.Hr.Sec.School</li>   
+                            <li><span>2020</span></br></li>
+                            <li>Matriculation <br> From Infant Jesus Hr.Sec.School</li>
+                        </ul>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------------service section --------------------------------------->
+    <div id="services">
+        <div class="container">
+            <h1 class="subtitle">Portfolio Highlights</h1>
+            <div class="services-lists">
+                <div>
+                    <h2>Web Development</h2>
+                    <p> Skilled in HTML,CSS and JavaScript for creating responsive,creating a user-friendly interfaces and dedicated to interactive websites.</p>
+                    <a href="https://www.codecademy.com/catalog/subject/web-development" target="_blank">Learn More</a>
+                </div>
+                <div>
+                    <h2>Problem Solving &<br>Continuous Learning </h2>
+                    <p>Capable of analyzing and solve the debug in programming problem with a focus on efficiency and resolution strategies.Also eager to learn new technologies amd stay updated in tech-field industry.</p>
+                    <a href="https://www.simplilearn.com/tutorials/programming-tutorial/problem-solving-in-programming" target="_blank">Learn More</a>
+                </div>
+                <div>
+                    <h2>Communication &<br>Team Work</h2>
+                    <p>Clear and concise communication skills to convey ideas and collaborate effectively.Also have a better relations in coordinating friends by sharing ideas in order to achieve goals.</p>
+                    <a href="https://teambuilding.com/blog/teamwork-skills" target="_blank">Learn More</a>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+<!-- --------------Portfolio--------------------------- -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/AmazonClone.png" alt="Amazon Clone">
+                <div class="layer">
+                    <h3>Amazon Clone</h3>
+                    <p>As part of my web development journey, I created an Amazon clone to demonstrate my proficiency in front-end development using HTML and CSS.</p>
+                    <a href="https://github.com/Madhav13Dubey/Mini-Amazon-UI" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="images/PortfolioPhoto.jpg" alt="Portfolio">
+                <div class="layer">
+                    <h3>My Portfolio</h3>
+                    <p>I developed a personal portfolio using HTML, CSS, and JavaScript. This interactive site highlights my expertise in web development, front-end responsive layouts, and clean code for an optimal user experience.</p>
+                    <a href="myportfoliolink" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="Url_Shortner.png" alt="URL Shortener">
+                <div class="layer">
+                    <h3>URL Shortener</h3>
+                    <p>Developed a URL Shortener using Node.js, Express.js, and Express-rate-limit. Implementing rate limiting and redirection from the short URLs to original URLs. This project enhanced my ability to build scalable and efficient web applications.</p>
+                    <a href="myURLShortenerlink" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="CurrencyConvertor.jpg" alt="Currency Converter">
+                <div class="layer">
+                    <h3>Currency Converter</h3>
+                    <p>Built a real-time Currency Converter using JavaScript, HTML, and CSS. It fetches live exchange rates through an API and supports multiple currencies with a user-friendly interface.</p>
+                    <a href="myCurrencyConverterlink" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="Gemini.jpeg" alt="Gemini Clone">
+                <div class="layer">
+                    <h3>Gemini Clone</h3>
+                    <p>Created a Gemini AI clone that simulates chatbot functionality using React and Node.js. It integrates advanced API calls and provides conversational AI features for dynamic interactions.</p>
+                    <a href="myGeminiClonelink" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <img src="ChatXplore.jpg" alt="Chat Analyzer">
+                <div class="layer">
+                    <h3>Chat Analyzer</h3>
+                    <p>Developed a Chat Analyzer tool using Python and JavaScript to analyze WhatsApp group chats. It provides insights like message frequency, active hours, and user engagement patterns.</p>
+                    <a href="https://github.com/Madhav13Dubey/ChatXplore" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="#" class="btn">See More</a>
+    </div>
+</div>
+
+
+
+
+<!-- --------------------Contact Form -------------------------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Contact Me</h1>
+                <p><i class="fa-regular fa-envelope"></i>madhavdubey420@gmail.com</p>
+                <p><i class="fa-sharp fa-solid fa-phone"></i>6006901010</p>
+                <div class="social-icons">
+                   <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a> 
+                   <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                   <a href="https://accounts.snapchat.com/v2/welcome" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
+                   <a href="https://www.linkedin.com/in/madhav-dubey-53b95631a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/Madhav_Resume.pdf" download class="btn btn2" target="_blank">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name"  placeholder="Enter your Name" required>
+                    <input type="email" name="Email" placeholder="Enter your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Enter your Message"></textarea> 
+                    <button type="submit" class="btn btn2">Submit</button>         
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright <i class="fa-regular fa-copyright"></i>Madhav Dubey <i class="fa-sharp fa-solid fa-heart"></i>.</p>
+    </div>
+</div>
+
+<script>
+
+   var tablinks = document.getElementsByClassName("tab-links");
+   var tabcontents = document.getElementsByClassName("tab-contents");
+
+   function opentab(tabname){
+       for(tablink of tablinks){
+           tablink.classList.remove("active-link");
+       }
+       for(tabcontent of tabcontents){
+           tabcontent.classList.remove("active-tab");
+       }
+
+       event.currentTarget.classList.add("active-link");
+       document.getElementById(tabname).classList.add("active-tab");
+    }
+
+    </script>
+
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+ 
+        function openmenu(){
+            sidemeu.style.right = "0";
+        }
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzbHE-TzBnty5jgnyCJm21iYOZsHt8a-43m76suO_tzCpeBtlFLihLUr6zTvqRMKWlU/exec'
+    const form = document.forms['submit-to-google-sheet']
+//   ---------- when data is entered sucessfully then a msg will displayed to it--------------
+ const msg = document.getElementById("msg")   
+form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent sucessfully.."
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script src="Typewriter.js"></script>
+
+</body>
+</html>
