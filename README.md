@@ -55,11 +55,8 @@ Built using **Node.js**, **Express.js**, and **Express-rate-limit** for efficien
 #### 💱 Currency Converter  
 Real-time currency converter built using **JavaScript**, fetching live exchange rates via API to ensure accurate conversions between multiple currencies.
 
-#### 🤖 Gemini Clone  
-A **React + Node.js** based AI chatbot clone simulating conversational AI interactions through dynamic API integration.
-
-#### 💬 Chat Analyzer (ChatXplore)  
-Developed with **Python and JavaScript**, this tool analyzes WhatsApp chat data to provide insights on activity, emoji usage, and user trends.  
+#### 💬 ChatXplore  
+Developed with **Python**, this tool analyzes WhatsApp chat data to provide insights on activity, emoji usage, and user trends.  
 🔗 [View on GitHub](https://github.com/Madhav13Dubey/ChatXplore)
 
 ---
