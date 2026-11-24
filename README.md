@@ -40,7 +40,7 @@ public/                 Served as-is: favicon, robots.txt, 404.html, og-image.jp
 scripts/                Repo guardrails: check-structure / check-assets / check-hygiene / optimize-images
 tests/unit/             Vitest tests
 tests/e2e/              Playwright smoke tests
-.github/                Workflows, composite setup action, PR template, Dependabot
+.github/                Workflows, composite setup action, PR template
 .husky/                 Git hooks: pre-commit (lint-staged), commit-msg (commitlint), pre-push
 ```
 
