@@ -106,25 +106,3 @@
     transform: none;
   }
 }
-
-/* Pointer-following colour glow (position set by src/scripts/cursor-glow.js) */
-.cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--a1) 0%, var(--a2) 45%, transparent 70%);
-  filter: blur(50px);
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
-  transition: opacity 0.4s;
-}
-.cursor-glow.on {
-  opacity: 0.3;
-}
-[data-theme='light'] .cursor-glow.on {
-  opacity: 0.22;
-}
