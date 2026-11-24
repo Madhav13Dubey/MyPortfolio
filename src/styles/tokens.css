@@ -1,0 +1,12 @@
+:root {
+  --bg: #07080c;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #e8eaf0;
+  --muted: #9aa0b4;
+  --a1: #8b5cf6;
+  --a2: #22d3ee;
+  --grad: linear-gradient(120deg, var(--a1), var(--a2));
+  --r: 20px;
+  --max: 1160px;
+}
