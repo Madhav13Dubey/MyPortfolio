@@ -37,7 +37,7 @@
     align-items: stretch;
     padding: 12px;
     border-radius: 22px;
-    background: rgba(12, 13, 20, 0.96);
+    background: var(--menu-bg);
     border: 1px solid var(--border);
     opacity: 0;
     pointer-events: none;
