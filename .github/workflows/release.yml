@@ -1,0 +1,54 @@
+name: Release
+
+# Manual: Actions -> Release -> Run workflow (on main). Tags the next patch/minor/major version
+# and attaches a versioned, checksummed build to a GitHub Release.
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - name: Compute next version
+        id: ver
+        run: |
+          LAST=$(git tag -l 'v[0-9]*' | sort -V | tail -n 1)
+          LAST="${LAST:-v0.0.0}"
+          IFS=. read -r MA MI PA <<< "${LAST#v}"
+          case "${{ inputs.bump }}" in
+            major) MA=$((MA+1)); MI=0; PA=0 ;;
+            minor) MI=$((MI+1)); PA=0 ;;
+            *) PA=$((PA+1)) ;;
+          esac
+          echo "version=${MA}.${MI}.${PA}" >> "$GITHUB_OUTPUT"
+      - name: Build
+        run: npm run build:ci
+      - name: Package artifact + checksum
+        run: |
+          V=${{ steps.ver.outputs.version }}
+          printf '{"version":"%s","commit":"%s","builtAt":"%s"}\n' "$V" "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/release.json
+          mkdir release
+          tar -czf "release/portfolio-${V}.tar.gz" dist
+          (cd release && sha256sum "portfolio-${V}.tar.gz" > "portfolio-${V}.tar.gz.sha256")
+      - name: Tag and publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=v${{ steps.ver.outputs.version }}
+          git tag "$V"
+          git push origin "$V"
+          gh release create "$V" release/* --title "$V" --generate-notes
