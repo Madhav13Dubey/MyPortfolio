@@ -1,6 +1,7 @@
 // App entry: wires every behaviour module. Styles are loaded from index.html (src/styles/main.css).
 import { FORM_ENDPOINT, TYPEWRITER_WORDS } from './scripts/config.js';
 import { initContactForm } from './scripts/contact-form.js';
+import { initCursorGlow } from './scripts/cursor-glow.js';
 import { initNav } from './scripts/nav.js';
 import { initReveal } from './scripts/reveal.js';
 import { initSpotlight } from './scripts/spotlight.js';
@@ -14,5 +15,6 @@ initReveal();
 initTabs();
 initTheme();
 initSpotlight();
+initCursorGlow();
 initContactForm(FORM_ENDPOINT);
 document.getElementById('year').textContent = new Date().getFullYear();
