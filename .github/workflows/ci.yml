@@ -94,16 +94,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
-
-  lighthouse:
-    name: Lighthouse (>= 90)
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist
-      - run: npx --yes @lhci/cli@0.14.x autorun

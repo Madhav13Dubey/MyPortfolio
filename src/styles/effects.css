@@ -10,7 +10,7 @@
   height: 46vmax;
   border-radius: 50%;
   filter: blur(110px);
-  opacity: 0.28;
+  opacity: var(--aurora-opacity);
   animation: float 22s ease-in-out infinite alternate;
 }
 .aurora i:nth-child(1) {
