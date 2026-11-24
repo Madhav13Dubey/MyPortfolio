@@ -10,14 +10,14 @@
   justify-content: space-between;
   padding: 10px 14px 10px 22px;
   border-radius: 999px;
-  background: rgba(12, 13, 20, 0.55);
+  background: var(--nav-bg);
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: background 0.3s;
 }
 .nav.scrolled {
-  background: rgba(12, 13, 20, 0.85);
+  background: var(--nav-bg-solid);
 }
 .logo {
   font:
@@ -170,5 +170,5 @@ main {
   font-size: 0.9rem;
 }
 .footer a:hover {
-  color: #fff;
+  color: var(--text);
 }

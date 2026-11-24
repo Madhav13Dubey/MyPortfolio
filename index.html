@@ -30,7 +30,9 @@
         "url": "%SITE_URL%",
         "sameAs": [
           "https://github.com/Madhav13Dubey",
-          "https://www.linkedin.com/in/madhav-dubey-53b95631a/"
+          "https://www.linkedin.com/in/madhav-dubey-53b95631a/",
+          "https://leetcode.com/u/Madhavdubey13/",
+          "https://codeforces.com/profile/MadhavDubey"
         ]
       }
     </script>
@@ -51,6 +53,13 @@
     <link rel="stylesheet" href="/src/styles/main.css" />
     <script>
       document.documentElement.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark';
+      }
     </script>
   </head>
   <body>
@@ -60,6 +69,7 @@
       <i></i>
       <i></i>
     </div>
+    <div class="progress" aria-hidden="true"></div>
 
     <header class="nav" id="nav">
       <a class="logo" href="#home" aria-label="MD. Madhav Dubey, home">
@@ -90,8 +100,48 @@
       <nav class="links" id="links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#stack">Tech</a>
         <a href="#projects">Projects</a>
+        <a href="#profiles">Coding</a>
         <a href="#contact" class="pill">Let's talk</a>
+        <button
+          class="theme-btn"
+          id="themeBtn"
+          type="button"
+          aria-label="Switch to light mode"
+          aria-pressed="false"
+        >
+          <svg
+            class="moon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+          <svg
+            class="sun"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+            />
+          </svg>
+        </button>
       </nav>
     </header>
 
@@ -106,19 +156,20 @@
           <h1>
             Hi, I'm
             <span class="grad">Madhav Dubey</span>
-            .
-            <br />
-            I build for the web.
           </h1>
           <p class="role">
             <span id="typed"></span>
             <span class="caret" aria-hidden="true"></span>
           </p>
           <p class="lead">
-            Software Development Engineer at Truvis.ai and B.Tech CSE (AI &amp; ML) student from
-            Kathua, Jammu &amp; Kashmir — crafting clean, responsive interfaces and the backends
-            behind them.
+            Software Development Engineer at Truvis.ai, turning logic into code and ideas into
+            impact — clean interfaces, solid backends and a habit of solving problems.
           </p>
+          <ul class="chips" aria-label="Quick facts">
+            <li>Truvis.ai · SDE I</li>
+            <li>BIT Mesra · B.Tech CSE (AI &amp; ML)</li>
+            <li>Kathua, Jammu &amp; Kashmir</li>
+          </ul>
           <div class="cta">
             <a class="btn primary" href="#projects">View my work</a>
             <a class="btn ghost" href="/Madhav_Resume.pdf" download>Download CV</a>
@@ -160,10 +211,10 @@
         <div class="about-grid">
           <p class="reveal about-copy">
             I'm a web developer with a passion for crafting visually appealing, usable websites.
-            Recent work includes an Amazon UI clone, a URL shortener, a currency converter and a
-            WhatsApp chat analyzer. As a Software Development Engineer at Truvis.ai I'm focused on
-            learning fast, writing clean code and collaborating well — let's explore opportunities
-            together.
+            Through my college days I turned curiosity into code, building an Amazon UI clone, a URL
+            shortener, a currency converter and a WhatsApp chat analyzer along the way. Today, as a
+            Software Development Engineer at Truvis.ai, I'm focused on learning fast, writing clean
+            code and collaborating well — let's explore opportunities together.
           </p>
           <div class="glass tabs reveal">
             <div class="tab-list" role="tablist" aria-label="Background">
@@ -200,7 +251,7 @@
             <div class="tab-panel" role="tabpanel" id="tab-edu" aria-labelledby="t-edu">
               <ol class="timeline">
                 <li>
-                  <time>2022 – Present</time>
+                  <time>2022 – 2026</time>
                   <b>B.Tech in CSE (AI &amp; ML)</b>
                 </li>
                 <li>
@@ -288,6 +339,249 @@
               <span>Leadership</span>
               <span>Collaboration</span>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section" id="stack">
+        <p class="eyebrow reveal">Tools I use</p>
+        <h2 class="reveal">
+          Tech
+          <span class="grad">stack</span>
+        </h2>
+        <div class="stack-grid">
+          <article class="glass stack-card reveal">
+            <h3>Programming languages</h3>
+            <ul class="chip-list">
+              <li style="--c: #00599c">
+                <img
+                  src="/src/assets/images/tech/cplusplus.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                C++
+              </li>
+              <li style="--c: #f7df1e">
+                <img
+                  src="/src/assets/images/tech/javascript.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                JavaScript
+              </li>
+              <li style="--c: #3776ab">
+                <img
+                  src="/src/assets/images/tech/python.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Python
+              </li>
+              <li style="--c: #f89820">
+                <img
+                  src="/src/assets/images/tech/java.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Java
+              </li>
+            </ul>
+          </article>
+          <article class="glass stack-card reveal">
+            <h3>Frontend</h3>
+            <ul class="chip-list">
+              <li style="--c: #e34f26">
+                <img
+                  src="/src/assets/images/tech/html5.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                HTML5
+              </li>
+              <li style="--c: #1572b6">
+                <img
+                  src="/src/assets/images/tech/css3.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                CSS3
+              </li>
+              <li style="--c: #61dafb">
+                <img
+                  src="/src/assets/images/tech/react.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                React
+              </li>
+              <li style="--c: #38b2ac">
+                <img
+                  src="/src/assets/images/tech/tailwindcss.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Tailwind CSS
+              </li>
+            </ul>
+          </article>
+          <article class="glass stack-card reveal">
+            <h3>Backend &amp; database</h3>
+            <ul class="chip-list">
+              <li style="--c: #f89820">
+                <img
+                  src="/src/assets/images/tech/java.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Java
+              </li>
+              <li style="--c: #339933">
+                <img
+                  src="/src/assets/images/tech/nodejs.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Node.js
+              </li>
+              <li style="--c: #9ca3af">
+                <img
+                  class="mono"
+                  src="/src/assets/images/tech/express.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Express.js
+              </li>
+              <li style="--c: #47a248">
+                <img
+                  src="/src/assets/images/tech/mongodb.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                MongoDB
+              </li>
+              <li style="--c: #336791">
+                <img
+                  src="/src/assets/images/tech/postgresql.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                PostgreSQL
+              </li>
+            </ul>
+          </article>
+          <article class="glass stack-card reveal">
+            <h3>Version control &amp; tools</h3>
+            <ul class="chip-list">
+              <li style="--c: #f05032">
+                <img
+                  src="/src/assets/images/tech/git.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Git
+              </li>
+              <li style="--c: #8b949e">
+                <img
+                  class="mono"
+                  src="/src/assets/images/tech/github.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                GitHub
+              </li>
+              <li style="--c: #007acc">
+                <img
+                  src="/src/assets/images/tech/vscode.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                VS Code
+              </li>
+            </ul>
+          </article>
+          <article class="glass stack-card reveal">
+            <h3>API testing</h3>
+            <ul class="chip-list">
+              <li style="--c: #ff6c37">
+                <img
+                  src="/src/assets/images/tech/postman.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Postman
+              </li>
+              <li style="--c: #6d5fe8">
+                <img
+                  src="/src/assets/images/tech/insomnia.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Insomnia
+              </li>
+            </ul>
+          </article>
+          <article class="glass stack-card reveal">
+            <h3>Currently learning</h3>
+            <ul class="chip-list">
+              <li style="--c: #f7931e">
+                <img
+                  src="/src/assets/images/tech/scikitlearn.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                scikit-learn
+              </li>
+              <li style="--c: #ff6f00">
+                <img
+                  src="/src/assets/images/tech/tensorflow.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                TensorFlow
+              </li>
+            </ul>
           </article>
         </div>
       </section>
@@ -433,6 +727,65 @@
               </a>
             </div>
           </article>
+        </div>
+      </section>
+
+      <!-- CODING PROFILES -->
+      <section class="section" id="profiles">
+        <p class="eyebrow reveal">DSA &amp; competitive programming</p>
+        <h2 class="reveal">
+          Coding
+          <span class="grad">profiles</span>
+        </h2>
+        <div class="profiles">
+          <a
+            class="glass profile reveal"
+            style="--c: #ffa116"
+            href="https://leetcode.com/u/Madhavdubey13/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="profile-name">LeetCode</span>
+            <span class="profile-handle">Madhavdubey13</span>
+            <span class="profile-desc">Daily problem solving and contests.</span>
+            <span class="profile-go">View profile →</span>
+          </a>
+          <a
+            class="glass profile reveal"
+            style="--c: #1f8acb"
+            href="https://codeforces.com/profile/MadhavDubey"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="profile-name">Codeforces</span>
+            <span class="profile-handle">MadhavDubey</span>
+            <span class="profile-desc">Rated rounds and speed-coding practice.</span>
+            <span class="profile-go">View profile →</span>
+          </a>
+          <a
+            class="glass profile reveal"
+            style="--c: #2f8d46"
+            href="https://www.geeksforgeeks.org/user/madhavduqrag/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="profile-name">GeeksforGeeks</span>
+            <span class="profile-handle">madhavduqrag</span>
+            <span class="profile-desc">DSA practice and core CS concepts.</span>
+            <span class="profile-go">View profile →</span>
+          </a>
+          <a
+            class="glass profile reveal"
+            style="--c: #2ec866"
+            href="https://www.hackerrank.com/profile/madhavdubey420"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="profile-name">HackerRank</span>
+            <span class="profile-handle">madhavdubey420</span>
+            <span class="profile-desc">Problem-solving and language challenges.</span>
+            <span class="profile-go">View profile →</span>
+          </a>
         </div>
       </section>
 

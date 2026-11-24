@@ -48,12 +48,12 @@ tests/e2e/              Playwright smoke tests
 
 `validate -> test -> build -> smoke`, then deploy on `main`:
 
-| Workflow      | Trigger                 | Jobs                                                                                                                     |
-| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `ci.yml`      | every push, PRs to main | structure, hygiene+assets, lint, commitlint (PRs), unit tests, build + bundle budget, Playwright smoke, Lighthouse >= 90 |
-| `deploy.yml`  | CI green on `main`      | Builds with `VITE_BASE=/MyPortfolio/` and publishes to GitHub Pages                                                      |
-| `release.yml` | manual                  | Next semver tag, versioned `.tar.gz` + sha256, GitHub Release                                                            |
-| `stale.yml`   | daily                   | Closes inactive issues/PRs                                                                                               |
+| Workflow      | Trigger                 | Jobs                                                                                                   |
+| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `ci.yml`      | every push, PRs to main | structure, hygiene+assets, lint, commitlint (PRs), unit tests, build + bundle budget, Playwright smoke |
+| `deploy.yml`  | CI green on `main`      | Builds with `VITE_BASE=/MyPortfolio/` and publishes to GitHub Pages                                    |
+| `release.yml` | manual                  | Next semver tag, versioned `.tar.gz` + sha256, GitHub Release                                          |
+| `stale.yml`   | daily                   | Closes inactive issues/PRs                                                                             |
 
 ### One-time GitHub setup
 

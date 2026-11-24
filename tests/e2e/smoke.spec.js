@@ -7,7 +7,7 @@ test('renders every section without console errors', async ({ page }) => {
 
   await page.goto('/');
   await expect(page).toHaveTitle(/Madhav Dubey/);
-  for (const id of ['home', 'about', 'skills', 'projects', 'contact']) {
+  for (const id of ['home', 'about', 'skills', 'stack', 'projects', 'profiles', 'contact']) {
     await expect(page.locator(`#${id}`)).toBeAttached();
   }
   expect(errors.filter((e) => !/fonts\.(googleapis|gstatic)|ERR_/.test(e))).toEqual([]);
@@ -35,4 +35,14 @@ test('every image loads', async ({ page }) => {
     imgs.filter((i) => i.complete && i.naturalWidth === 0).map((i) => i.src),
   );
   expect(broken).toEqual([]);
+});
+
+test('theme toggle switches and persists', async ({ page }) => {
+  await page.goto('/');
+  const html = page.locator('html');
+  const before = await html.getAttribute('data-theme');
+  await page.evaluate(() => document.getElementById('themeBtn').click());
+  await expect(html).not.toHaveAttribute('data-theme', before);
+  await page.reload();
+  await expect(html).not.toHaveAttribute('data-theme', before);
 });
