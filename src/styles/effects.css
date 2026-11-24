@@ -1,0 +1,108 @@
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.aurora i {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.28;
+  animation: float 22s ease-in-out infinite alternate;
+}
+.aurora i:nth-child(1) {
+  background: var(--a1);
+  top: -15%;
+  left: -10%;
+}
+.aurora i:nth-child(2) {
+  background: var(--a2);
+  bottom: -20%;
+  right: -12%;
+  animation-delay: -8s;
+}
+.aurora i:nth-child(3) {
+  background: #ec4899;
+  top: 40%;
+  left: 45%;
+  width: 28vmax;
+  height: 28vmax;
+  opacity: 0.12;
+  animation-delay: -14s;
+}
+@keyframes float {
+  to {
+    transform: translate(6vw, 5vh) scale(1.15);
+  }
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 0 #34d399;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--a2);
+  margin-left: 3px;
+  vertical-align: -0.2em;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 40px;
+  background: conic-gradient(from 0deg, var(--a1), var(--a2), #ec4899, var(--a1));
+  filter: blur(22px);
+  opacity: 0.55;
+  animation: spin 14s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
