@@ -1,84 +1,85 @@
-# 👤 MyPortfolio
+# Madhav Dubey — Portfolio
 
-## 🎯 Motto  
-<p align="center">
-  <b><i>SHOWCASE WHO I AM, WHAT I DO</i></b>  
-</p>
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Node](https://img.shields.io/badge/Node.js-24+-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![Commits](https://img.shields.io/badge/commits-conventional-FE5196?style=flat-square)
 
----
+Personal developer portfolio: a fast, accessible, dependency-free front end built with Vite,
+linted and tested on every push, and deployed to GitHub Pages (Vercel-ready).
 
-## 🚀 Why This Portfolio Matters  
-A portfolio isn’t just a static site — it’s your **digital identity**.  
-With mine, you’ll see:
+## Quick start
 
-✅ My skills & expertise  
-✅ Projects I’ve built  
-✅ Ways to connect & collaborate  
+```bash
+nvm use            # Node 24 (see .nvmrc)
+npm ci
+npm run dev        # http://localhost:5173
+```
 
----
+| Command                                           | What it does                                                           |
+| ------------------------------------------------- | ---------------------------------------------------------------------- |
+| `npm run dev`                                     | Vite dev server                                                        |
+| `npm run build`                                   | Production build to `dist/`                                            |
+| `npm run preview`                                 | Serve the production build                                             |
+| `npm run lint`                                    | Structure, assets, hygiene, ESLint, Stylelint, html-validate, Prettier |
+| `npm test`                                        | Vitest unit tests                                                      |
+| `npm run e2e`                                     | Playwright smoke tests against the production build                    |
+| `npm run build:ci`                                | Everything CI runs: lint + build + bundle budget                       |
+| `npm run images:optimize -- <file> [--width=900]` | Convert an image to compressed WebP                                    |
 
-## 📌 Project Overview  
-**MyPortfolio** is a personal website designed and developed to showcase my skills, educational background, projects, and contact details — all in one interactive platform.  
-The portfolio includes sections like **About**, **Services**, **Projects**, and **Contact**, allowing visitors to explore my journey, technical skills, and the projects I’ve built so far.
+## Project structure
 
----
+```
+index.html              Page markup (single entry, Vite root)
+src/
+  main.js               Entry: wires all behaviour modules
+  styles/               tokens -> base -> layout -> components -> effects -> responsive (main.css imports all)
+  scripts/              typewriter, nav, tabs, reveal, contact-form, config
+  assets/images/        Optimized WebP images (profile/, projects/)
+public/                 Served as-is: favicon, robots.txt, 404.html, og-image.jpg, Madhav_Resume.pdf
+scripts/                Repo guardrails: check-structure / check-assets / check-hygiene / optimize-images
+tests/unit/             Vitest tests
+tests/e2e/              Playwright smoke tests
+.github/                Workflows, composite setup action, PR template, Dependabot
+.husky/                 Git hooks: pre-commit (lint-staged), commit-msg (commitlint), pre-push
+```
 
-## ⚡ Portfolio Highlights  
+## Pipeline (GitHub Actions)
 
-### 🧑‍💻 About Me  
-A passionate **Web Developer Enthusiast** who loves crafting visually appealing and functional websites.  
-I’ve developed several projects including an **Amazon Clone**, **URL Shortener**, **ChatXplore**, and more.  
-Currently pursuing **B.Tech in Computer Science (AI & ML)** from *Birla Institute of Technology*.
+`validate -> test -> build -> smoke`, then deploy on `main`:
 
----
+| Workflow      | Trigger                 | Jobs                                                                                                                     |
+| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `ci.yml`      | every push, PRs to main | structure, hygiene+assets, lint, commitlint (PRs), unit tests, build + bundle budget, Playwright smoke, Lighthouse >= 90 |
+| `deploy.yml`  | CI green on `main`      | Builds with `VITE_BASE=/MyPortfolio/` and publishes to GitHub Pages                                                      |
+| `release.yml` | manual                  | Next semver tag, versioned `.tar.gz` + sha256, GitHub Release                                                            |
+| `stale.yml`   | daily                   | Closes inactive issues/PRs                                                                                               |
 
-### 🧩 Services  
-- **Web Development:** Building responsive, modern, and user-friendly interfaces using HTML, CSS, and JavaScript.  
-- **Problem Solving & Continuous Learning:** Analytical problem-solving mindset with eagerness to stay updated with new technologies.  
-- **Communication & Team Work:** Strong interpersonal skills with the ability to lead, collaborate, and coordinate effectively.  
+### One-time GitHub setup
 
----
+1. **Settings -> Pages -> Source:** GitHub Actions.
+2. **Settings -> Branches:** protect `main`, require the CI jobs above.
+3. **Contact form (optional but recommended):** create a free form at [formspree.io](https://formspree.io),
+   then add the repo variable **Settings -> Secrets and variables -> Actions -> Variables ->
+   `FORM_ENDPOINT`** = `https://formspree.io/f/<id>`. Messages then arrive in your inbox.
+4. Add your resume at `public/Madhav_Resume.pdf` (the "Download CV" button points there).
 
-### 💼 Projects  
+## Commit convention
 
-#### 🛒 Amazon Clone  
-Developed using **HTML** and **CSS**, this project replicates the core front-end structure of Amazon to demonstrate strong UI development skills.  
-🔗 [View on GitHub](https://github.com/Madhav13Dubey/Mini-Amazon-UI)
+[Conventional Commits](https://www.conventionalcommits.org), enforced by commitlint (locally and on PRs):
 
-#### 💻 Personal Portfolio  
-A responsive portfolio site created with **HTML, CSS, and JavaScript** to highlight my skills, projects, and professional journey.  
-📂 Features sections for About, Services, Portfolio, and Contact.
+```
+feat(projects): add Chat Analyzer card
+fix(nav): close menu after selecting a link
+chore(deps): bump vite
+```
 
-#### 🔗 URL Shortener  
-Built using **Node.js**, **Express.js**, and **Express-rate-limit** for efficient link shortening and redirect management with integrated rate-limiting and analytics.
+## Deploying to Vercel later
 
-#### 💱 Currency Converter  
-Real-time currency converter built using **JavaScript**, fetching live exchange rates via API to ensure accurate conversions between multiple currencies.
+Import the repo in Vercel (framework: Vite). Nothing else is needed — `VITE_BASE` defaults to `/`.
+Set `SITE_URL` (canonical / Open Graph URL) and `VITE_FORM_ENDPOINT` in Vercel's env settings.
 
-#### 💬 ChatXplore  
-Developed with **Python**, this tool analyzes WhatsApp chat data to provide insights on activity, emoji usage, and user trends.  
-🔗 [View on GitHub](https://github.com/Madhav13Dubey/ChatXplore)
+## Privacy
 
----
-
-## 🛠 Tech Stack  
-| Technology | Description |
-|-------------|--------------|
-| **HTML5** | Core structure and content layout |
-| **CSS3 / Bootstrap** | Styling, responsiveness, and layout design |
-| **JavaScript** | Interactivity and form handling |
-| **Font Awesome** | Icons for visual enhancement |
-| **Google Sheets API** | Stores submitted contact form data |
-
----
-
-## 💡 Features Implemented  
-- 🏠 **Home Section:** Dynamic introduction and responsive navigation menu  
-- 📜 **About Section:** Educational background, experience, and skill set  
-- 🧰 **Services Section:** Highlights expertise in Web Development, Problem Solving, and Teamwork  
-- 💼 **Portfolio Section:** Showcases multiple real-world projects with live links and descriptions  
-- 📬 **Contact Section:** Integrated form connected to **Google Sheets** for real-time message capture  
-- 📱 **Responsive Layout:** Works seamlessly across mobile, tablet, and desktop devices  
-
----
-
+The phone number is intentionally masked (`6006XXXXXX`); `npm run hygiene:check` fails if the real
+number is ever committed.
