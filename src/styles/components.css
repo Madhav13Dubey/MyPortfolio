@@ -404,12 +404,13 @@
     transform 0.2s,
     border-color 0.2s;
 }
-.chip-list li::before {
-  content: '';
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--c);
+.chip-list img {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+[data-theme='dark'] .chip-list img.mono {
+  filter: invert(1);
 }
 .chip-list li:hover {
   transform: translateY(-3px);
