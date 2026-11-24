@@ -36,3 +36,13 @@ test('every image loads', async ({ page }) => {
   );
   expect(broken).toEqual([]);
 });
+
+test('theme toggle switches and persists', async ({ page }) => {
+  await page.goto('/');
+  const html = page.locator('html');
+  const before = await html.getAttribute('data-theme');
+  await page.evaluate(() => document.getElementById('themeBtn').click());
+  await expect(html).not.toHaveAttribute('data-theme', before);
+  await page.reload();
+  await expect(html).not.toHaveAttribute('data-theme', before);
+});
