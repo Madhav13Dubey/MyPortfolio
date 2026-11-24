@@ -112,11 +112,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 520px;
-  height: 520px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--a1) 0%, var(--a2) 45%, transparent 70%);
-  filter: blur(70px);
+  filter: blur(50px);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
