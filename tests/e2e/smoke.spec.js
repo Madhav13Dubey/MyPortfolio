@@ -7,7 +7,7 @@ test('renders every section without console errors', async ({ page }) => {
 
   await page.goto('/');
   await expect(page).toHaveTitle(/Madhav Dubey/);
-  for (const id of ['home', 'about', 'skills', 'projects', 'contact']) {
+  for (const id of ['home', 'about', 'skills', 'stack', 'projects', 'profiles', 'contact']) {
     await expect(page.locator(`#${id}`)).toBeAttached();
   }
   expect(errors.filter((e) => !/fonts\.(googleapis|gstatic)|ERR_/.test(e))).toEqual([]);
