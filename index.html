@@ -1,205 +1,499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madhav Dubey — Web & Software Developer</title>
-  <meta name="description" content="Portfolio of Madhav Dubey, a web and software developer and B.Tech CSE (AI & ML) student from Kathua, Jammu & Kashmir.">
-  <meta name="theme-color" content="#07080c">
-  <meta property="og:title" content="Madhav Dubey — Web & Software Developer">
-  <meta property="og:description" content="Projects, skills and contact details of Madhav Dubey.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="images/PortfolioPhoto.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Style.css">
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madhav Dubey — Software Development Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Madhav Dubey, Software Development Engineer at Truvis.ai and B.Tech CSE (AI & ML) student from Kathua, Jammu & Kashmir."
+    />
+    <meta name="theme-color" content="#07080c" />
+    <link rel="canonical" href="%SITE_URL%" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="Madhav Dubey — Software Development Engineer" />
+    <meta
+      property="og:description"
+      content="Projects, skills and contact details of Madhav Dubey."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%SITE_URL%" />
+    <meta property="og:image" content="%SITE_URL%og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Madhav Dubey",
+        "jobTitle": "Software Development Engineer",
+        "worksFor": { "@type": "Organization", "name": "Truvis.ai" },
+        "url": "%SITE_URL%",
+        "sameAs": [
+          "https://github.com/Madhav13Dubey",
+          "https://www.linkedin.com/in/madhav-dubey-53b95631a/"
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="aurora" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
 
-  <header class="nav" id="nav">
-    <a class="logo" href="#home" aria-label="Madhav Dubey, home">MD<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="links">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <nav class="links" id="links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact" class="pill">Let's talk</a>
-    </nav>
-  </header>
+    <header class="nav" id="nav">
+      <a class="logo" href="#home" aria-label="Madhav Dubey, home">
+        MD
+        <span>.</span>
+      </a>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="links"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+      <nav class="links" id="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="pill">Let's talk</a>
+      </nav>
+    </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-text reveal">
-        <span class="badge"><i class="dot"></i> Open to internships &amp; opportunities</span>
-        <h1>Hi, I'm <span class="grad">Madhav Dubey</span>.<br>I build for the web.</h1>
-        <p class="role"><span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
-        <p class="lead">B.Tech CSE (AI &amp; ML) student from Kathua, Jammu &amp; Kashmir — crafting clean, responsive interfaces and the backends behind them.</p>
-        <div class="cta">
-          <a class="btn primary" href="#projects">View my work</a>
-          <a class="btn ghost" href="images/Madhav_Resume.pdf" download>Download CV</a>
-        </div>
-        <ul class="stats">
-          <li><b>6+</b><span>Projects built</span></li>
-          <li><b>4</b><span>Core stacks</span></li>
-          <li><b>2022</b><span>Coding since</span></li>
-        </ul>
-      </div>
-      <div class="hero-art reveal">
-        <div class="ring"></div>
-        <img src="images/mine.png" alt="Portrait of Madhav Dubey" width="400" height="500" fetchpriority="high">
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <p class="eyebrow reveal">About</p>
-      <h2 class="reveal">Curious builder, <span class="grad">continuous learner.</span></h2>
-      <div class="about-grid">
-        <p class="reveal about-copy">I'm a web developer with a passion for crafting visually appealing, usable websites. Recent work includes an Amazon UI clone, a URL shortener, a currency converter and a WhatsApp chat analyzer. As a fresher I'm focused on learning fast, writing clean code and collaborating well — let's explore opportunities together.</p>
-        <div class="glass tabs reveal">
-          <div class="tab-list" role="tablist" aria-label="Background">
-            <button role="tab" aria-selected="true" aria-controls="tab-edu" id="t-edu">Education</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-exp" id="t-exp" tabindex="-1">Experience</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-qual" id="t-qual" tabindex="-1">Qualities</button>
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-text reveal">
+          <span class="badge">
+            <i class="dot"></i>
+            Open to collaborations
+          </span>
+          <h1>
+            Hi, I'm
+            <span class="grad">Madhav Dubey</span>
+            .
+            <br />
+            I build for the web.
+          </h1>
+          <p class="role">
+            <span id="typed"></span>
+            <span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="lead">
+            Software Development Engineer at Truvis.ai and B.Tech CSE (AI &amp; ML) student from
+            Kathua, Jammu &amp; Kashmir — crafting clean, responsive interfaces and the backends
+            behind them.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View my work</a>
+            <a class="btn ghost" href="/Madhav_Resume.pdf" download>Download CV</a>
           </div>
-          <div class="tab-panel" role="tabpanel" id="tab-edu" aria-labelledby="t-edu">
-            <ol class="timeline">
-              <li><time>2022 – Present</time><b>B.Tech in CSE (AI &amp; ML)</b></li>
-              <li><time>2020 – 2022</time><b>Senior Secondary</b><span>Govt. Hr. Sec. School</span></li>
-              <li><time>2020</time><b>Matriculation</b><span>Infant Jesus Hr. Sec. School</span></li>
-            </ol>
-          </div>
-          <div class="tab-panel" role="tabpanel" id="tab-exp" aria-labelledby="t-exp" hidden>
-            <ol class="timeline"><li><time>Currently</time><b>Fresher</b><span>Hands-on through personal &amp; academic projects</span></li></ol>
-          </div>
-          <div class="tab-panel" role="tabpanel" id="tab-qual" aria-labelledby="t-qual" hidden>
-            <ol class="timeline"><li><time>Soft skills</time><b>Teamwork &amp; Leadership</b><span>Clear communication, goal-driven collaboration</span></li></ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <p class="eyebrow reveal">What I do</p>
-      <h2 class="reveal">Skills &amp; <span class="grad">strengths</span></h2>
-      <div class="cards">
-        <article class="glass card reveal">
-          <div class="icon">&lt;/&gt;</div>
-          <h3>Web Development</h3>
-          <p>Responsive, user-friendly interfaces with HTML, CSS and JavaScript — front-end focused, growing on the back-end.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span></div>
-        </article>
-        <article class="glass card reveal">
-          <div class="icon">⚙</div>
-          <h3>Problem Solving</h3>
-          <p>Analytical debugging with a focus on efficient solutions, plus eagerness to keep up with new technologies.</p>
-          <div class="tags"><span>DSA</span><span>Debugging</span><span>Python</span></div>
-        </article>
-        <article class="glass card reveal">
-          <div class="icon">✦</div>
-          <h3>Communication &amp; Teamwork</h3>
-          <p>Clear, concise communication and a collaborative approach to turning shared ideas into shipped goals.</p>
-          <div class="tags"><span>Leadership</span><span>Collaboration</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <p class="eyebrow reveal">Selected work</p>
-      <h2 class="reveal">Projects I'm <span class="grad">proud of</span></h2>
-      <div class="projects">
-        <article class="glass project reveal">
-          <img src="images/AmazonClone.png" alt="Amazon clone screenshot" loading="lazy">
-          <div class="p-body">
-            <h3>Amazon Clone</h3>
-            <p>Pixel-faithful Amazon UI built to demonstrate front-end fundamentals.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span></div>
-            <a class="link" href="https://github.com/Madhav13Dubey/Mini-Amazon-UI" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-        <article class="glass project reveal">
-          <img src="Url_Shortner.png" alt="URL shortener screenshot" loading="lazy">
-          <div class="p-body">
-            <h3>URL Shortener</h3>
-            <p>Short links with redirection and rate limiting for scalable, abuse-resistant usage.</p>
-            <div class="tags"><span>Node.js</span><span>Express</span></div>
-          </div>
-        </article>
-        <article class="glass project reveal">
-          <img src="CurrencyConvertor.jpg" alt="Currency converter screenshot" loading="lazy">
-          <div class="p-body">
-            <h3>Currency Converter</h3>
-            <p>Real-time conversion across multiple currencies using live exchange-rate APIs.</p>
-            <div class="tags"><span>JavaScript</span><span>API</span></div>
-          </div>
-        </article>
-        <article class="glass project reveal">
-          <img src="Gemini.jpeg" alt="Gemini clone screenshot" loading="lazy">
-          <div class="p-body">
-            <h3>Gemini Clone</h3>
-            <p>Conversational AI chatbot interface with API-driven, dynamic responses.</p>
-            <div class="tags"><span>React</span><span>Node.js</span></div>
-          </div>
-        </article>
-        <article class="glass project reveal">
-          <img src="ChatXplore.jpg" alt="Chat analyzer screenshot" loading="lazy">
-          <div class="p-body">
-            <h3>ChatXplore</h3>
-            <p>Analyzes WhatsApp group chats: message frequency, active hours and engagement patterns.</p>
-            <div class="tags"><span>Python</span><span>Data</span></div>
-            <a class="link" href="https://github.com/Madhav13Dubey/ChatXplore" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-        <article class="glass project reveal">
-          <img src="images/PortfolioPhoto.jpg" alt="Portfolio site preview" loading="lazy">
-          <div class="p-body">
-            <h3>This Portfolio</h3>
-            <p>Responsive, accessible personal site with zero dependencies.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
-            <a class="link" href="https://github.com/Madhav13Dubey/MyPortfolio" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <p class="eyebrow reveal">Contact</p>
-      <h2 class="reveal">Let's build <span class="grad">something together</span></h2>
-      <div class="contact-grid">
-        <div class="reveal">
-          <p class="lead">Have an opportunity, project or just want to say hi? My inbox is open.</p>
-          <ul class="contact-list">
-            <li><a href="mailto:madhavdubey420@gmail.com">madhavdubey420@gmail.com</a></li>
-            <li><a href="tel:+916006901010">+91 60069 01010</a></li>
-            <li><a href="https://www.linkedin.com/in/madhav-dubey-53b95631a/" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://github.com/Madhav13Dubey" target="_blank" rel="noopener">GitHub</a></li>
+          <ul class="stats">
+            <li>
+              <b>6+</b>
+              <span>Projects built</span>
+            </li>
+            <li>
+              <b>4</b>
+              <span>Core stacks</span>
+            </li>
+            <li>
+              <b>2022</b>
+              <span>Coding since</span>
+            </li>
           </ul>
         </div>
-        <form class="glass form reveal" id="form" name="submit-to-google-sheet" novalidate>
-          <label>Name<input type="text" name="Name" autocomplete="name" required></label>
-          <label>Email<input type="email" name="Email" autocomplete="email" required></label>
-          <label>Message<textarea name="Message" rows="5" required></textarea></label>
-          <button class="btn primary" type="submit">Send message</button>
-          <p id="msg" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-  </main>
+        <div class="hero-art reveal">
+          <div class="ring"></div>
+          <img
+            src="/src/assets/images/profile/madhav.webp"
+            alt="Portrait of Madhav Dubey"
+            width="400"
+            height="500"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Madhav Dubey. Built with care.</p>
-    <a href="#home">Back to top ↑</a>
-  </footer>
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <p class="eyebrow reveal">About</p>
+        <h2 class="reveal">
+          Curious builder,
+          <span class="grad">continuous learner.</span>
+        </h2>
+        <div class="about-grid">
+          <p class="reveal about-copy">
+            I'm a web developer with a passion for crafting visually appealing, usable websites.
+            Recent work includes an Amazon UI clone, a URL shortener, a currency converter and a
+            WhatsApp chat analyzer. As a Software Development Engineer at Truvis.ai I'm focused on
+            learning fast, writing clean code and collaborating well — let's explore opportunities
+            together.
+          </p>
+          <div class="glass tabs reveal">
+            <div class="tab-list" role="tablist" aria-label="Background">
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="tab-edu"
+                id="t-edu"
+              >
+                Education
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-exp"
+                id="t-exp"
+                tabindex="-1"
+              >
+                Experience
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-qual"
+                id="t-qual"
+                tabindex="-1"
+              >
+                Qualities
+              </button>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="tab-edu" aria-labelledby="t-edu">
+              <ol class="timeline">
+                <li>
+                  <time>2022 – Present</time>
+                  <b>B.Tech in CSE (AI &amp; ML)</b>
+                </li>
+                <li>
+                  <time>2020 – 2022</time>
+                  <b>Senior Secondary</b>
+                  <span>Govt. Hr. Sec. School</span>
+                </li>
+                <li>
+                  <time>2020</time>
+                  <b>Matriculation</b>
+                  <span>Infant Jesus Hr. Sec. School</span>
+                </li>
+              </ol>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="tab-exp" aria-labelledby="t-exp" hidden>
+              <ol class="timeline">
+                <li>
+                  <time>Jul 2026 – Present</time>
+                  <b>Software Development Engineer I</b>
+                  <span>Truvis.ai · Full-time</span>
+                </li>
+                <li>
+                  <time>Dec 2025 – Jun 2026</time>
+                  <b>Software Development Engineer Intern</b>
+                  <span>Truvis.ai · Internship</span>
+                </li>
+              </ol>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="tab-qual" aria-labelledby="t-qual" hidden>
+              <ol class="timeline">
+                <li>
+                  <time>Soft skills</time>
+                  <b>Teamwork &amp; Leadership</b>
+                  <span>Clear communication, goal-driven collaboration</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <script src="script.js"></script>
-</body>
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <p class="eyebrow reveal">What I do</p>
+        <h2 class="reveal">
+          Skills &amp;
+          <span class="grad">strengths</span>
+        </h2>
+        <div class="cards">
+          <article class="glass card reveal">
+            <div class="icon">&lt;/&gt;</div>
+            <h3>Web Development</h3>
+            <p>
+              Responsive, user-friendly interfaces with HTML, CSS and JavaScript — front-end
+              focused, growing on the back-end.
+            </p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Node.js</span>
+            </div>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon">⚙</div>
+            <h3>Problem Solving</h3>
+            <p>
+              Analytical debugging with a focus on efficient solutions, plus eagerness to keep up
+              with new technologies.
+            </p>
+            <div class="tags">
+              <span>DSA</span>
+              <span>Debugging</span>
+              <span>Python</span>
+            </div>
+          </article>
+          <article class="glass card reveal">
+            <div class="icon">✦</div>
+            <h3>Communication &amp; Teamwork</h3>
+            <p>
+              Clear, concise communication and a collaborative approach to turning shared ideas into
+              shipped goals.
+            </p>
+            <div class="tags">
+              <span>Leadership</span>
+              <span>Collaboration</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <p class="eyebrow reveal">Selected work</p>
+        <h2 class="reveal">
+          Projects I'm
+          <span class="grad">proud of</span>
+        </h2>
+        <div class="projects">
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/amazon-clone.webp"
+              alt="Amazon clone screenshot"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>Amazon Clone</h3>
+              <p>Pixel-faithful Amazon UI built to demonstrate front-end fundamentals.</p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Madhav13Dubey/Mini-Amazon-UI"
+                target="_blank"
+                rel="noopener"
+              >
+                View on GitHub →
+              </a>
+            </div>
+          </article>
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/url-shortener.webp"
+              alt="URL shortener screenshot"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>URL Shortener</h3>
+              <p>
+                Short links with redirection and rate limiting for scalable, abuse-resistant usage.
+              </p>
+              <div class="tags">
+                <span>Node.js</span>
+                <span>Express</span>
+              </div>
+            </div>
+          </article>
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/currency.webp"
+              alt="Currency converter screenshot"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>Currency Converter</h3>
+              <p>Real-time conversion across multiple currencies using live exchange-rate APIs.</p>
+              <div class="tags">
+                <span>JavaScript</span>
+                <span>API</span>
+              </div>
+            </div>
+          </article>
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/gemini.webp"
+              alt="Gemini clone screenshot"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>Gemini Clone</h3>
+              <p>Conversational AI chatbot interface with API-driven, dynamic responses.</p>
+              <div class="tags">
+                <span>React</span>
+                <span>Node.js</span>
+              </div>
+            </div>
+          </article>
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/chatxplore.webp"
+              alt="Chat analyzer screenshot"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>ChatXplore</h3>
+              <p>
+                Analyzes WhatsApp group chats: message frequency, active hours and engagement
+                patterns.
+              </p>
+              <div class="tags">
+                <span>Python</span>
+                <span>Data</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Madhav13Dubey/ChatXplore"
+                target="_blank"
+                rel="noopener"
+              >
+                View on GitHub →
+              </a>
+            </div>
+          </article>
+          <article class="glass project reveal">
+            <img
+              src="/src/assets/images/projects/portfolio.webp"
+              alt="Portfolio site preview"
+              width="900"
+              height="560"
+              loading="lazy"
+            />
+            <div class="p-body">
+              <h3>This Portfolio</h3>
+              <p>Responsive, accessible personal site built with Vite and a full CI pipeline.</p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+                <span>Vite</span>
+              </div>
+              <a
+                class="link"
+                href="https://github.com/Madhav13Dubey/MyPortfolio"
+                target="_blank"
+                rel="noopener"
+              >
+                View on GitHub →
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="reveal">
+          Let's build
+          <span class="grad">something together</span>
+        </h2>
+        <div class="contact-grid">
+          <div class="reveal">
+            <p class="lead">
+              Have an opportunity, project or just want to say hi? My inbox is open.
+            </p>
+            <ul class="contact-list">
+              <li><a href="mailto:madhavdubey420@gmail.com">madhavdubey420@gmail.com</a></li>
+              <li><span class="masked">+91 6006XXXXXX</span></li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/madhav-dubey-53b95631a/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Madhav13Dubey" target="_blank" rel="noopener">GitHub</a>
+              </li>
+            </ul>
+          </div>
+          <form class="glass form reveal" id="form" name="contact" novalidate>
+            <label>
+              Name
+              <input type="text" name="Name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="Email" autocomplete="email" required />
+            </label>
+            <label>
+              Message
+              <textarea name="Message" rows="5" required></textarea>
+            </label>
+            <input
+              class="hp"
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <button class="btn primary" type="submit">Send message</button>
+            <p id="msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        ©
+        <span id="year"></span>
+        Madhav Dubey. Built with care.
+      </p>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
