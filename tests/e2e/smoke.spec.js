@@ -84,3 +84,22 @@ test('project viewer loads images only on request and steps through the tour', a
     .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
     .toBeGreaterThan(0);
 });
+
+test('presentation viewer opens on request and the PPT download is named correctly', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const link = page.locator('a[download="Project_Detailed_Overview.pptx"]').first();
+  await expect(link).toHaveAttribute('href', /Project_Detailed_Overview\.pptx$/);
+  const res = await page.request.get(await link.evaluate((a) => a.href));
+  expect(res.ok()).toBe(true);
+
+  await page.locator('[data-viewer="deck"]').evaluate((b) => b.click());
+  await expect(page.locator('#viewerCount')).toHaveText('01 / 24');
+  await page.locator('#viewerNext').click();
+  await expect(page.locator('#viewerCount')).toHaveText('02 / 24');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+  await expect(page.locator('#viewerDownload')).toBeVisible();
+});

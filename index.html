@@ -171,7 +171,7 @@
           </ul>
           <div class="cta">
             <a class="btn primary" href="#projects">View my work</a>
-            <a class="btn ghost" href="/Madhav_Resume.pdf" download>Download CV</a>
+            <a class="btn ghost" href="Madhav_Resume.pdf" download>Download CV</a>
           </div>
           <ul class="stats">
             <li>
@@ -671,12 +671,22 @@
           </div>
         </div>
         <div class="feature-actions reveal">
+          <button class="btn primary" type="button" data-viewer="deck">
+            View project presentation · 24 slides
+          </button>
           <button class="btn primary" type="button" data-viewer="arch">
             View system architecture
           </button>
           <button class="btn ghost" type="button" data-viewer="tour">
             Explore the project · 12 screens
           </button>
+          <a
+            class="btn ghost"
+            href="Project_Detailed_Overview.pptx"
+            download="Project_Detailed_Overview.pptx"
+          >
+            ⬇ Download PPT
+          </a>
         </div>
       </section>
 
@@ -964,6 +974,14 @@
         <div class="viewer-controls">
           <div class="viewer-dots" id="viewerDots"></div>
           <span class="viewer-count" id="viewerCount"></span>
+          <a
+            class="btn ghost"
+            id="viewerDownload"
+            href="Project_Detailed_Overview.pptx"
+            download="Project_Detailed_Overview.pptx"
+          >
+            ⬇ Download PPT
+          </a>
           <button class="btn ghost" id="viewerPlay" type="button" aria-pressed="false">
             ▶ Auto-play
           </button>

@@ -36,7 +36,7 @@ src/
   styles/               tokens -> base -> layout -> components -> effects -> responsive (main.css imports all)
   scripts/              typewriter, nav, tabs, reveal, contact-form, config
   assets/images/        Optimized WebP images (profile/, projects/)
-public/                 Served as-is: favicon, robots.txt, 404.html, og-image.jpg, Madhav_Resume.pdf
+public/                 Served as-is: favicon, robots.txt, 404.html, og-image.jpg, Madhav_Resume.pdf, Project_Detailed_Overview.pptx
 scripts/                Repo guardrails: check-structure / check-assets / check-hygiene / optimize-images
 tests/unit/             Vitest tests
 tests/e2e/              Playwright smoke tests

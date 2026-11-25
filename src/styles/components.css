@@ -672,6 +672,7 @@
     0 0 0 1px color-mix(in srgb, var(--a1) 25%, transparent);
 }
 .viewer[open] {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   animation: viewer-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -878,5 +879,30 @@
   }
   .viewer-head h3 {
     font-size: 1.1rem;
+  }
+}
+
+/* Presentation mode: slides are 16:9 images, so drop the fake browser bar */
+.viewer.deck .win-bar {
+  display: none;
+}
+.viewer.deck .win {
+  background: #fff;
+}
+.viewer:not(.deck) #viewerDownload {
+  display: none;
+}
+
+/* Let tall content (24 dots on phones) scroll instead of overlapping */
+.viewer-stage,
+.viewer-head,
+.viewer-foot {
+  flex: none;
+}
+@media (max-width: 640px) {
+  .viewer-dots button {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
   }
 }
