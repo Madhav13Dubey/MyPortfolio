@@ -1,5 +1,8 @@
 import { expect, test } from '@playwright/test';
 
+// Keep tests hermetic: never wait on Google Fonts.
+test.beforeEach(({ page }) => page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort()));
+
 test('renders every section without console errors', async ({ page }) => {
   const errors = [];
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
@@ -7,7 +10,16 @@ test('renders every section without console errors', async ({ page }) => {
 
   await page.goto('/');
   await expect(page).toHaveTitle(/Madhav Dubey/);
-  for (const id of ['home', 'about', 'skills', 'stack', 'projects', 'profiles', 'contact']) {
+  for (const id of [
+    'home',
+    'about',
+    'skills',
+    'stack',
+    'featured',
+    'projects',
+    'profiles',
+    'contact',
+  ]) {
     await expect(page.locator(`#${id}`)).toBeAttached();
   }
   expect(errors.filter((e) => !/fonts\.(googleapis|gstatic)|ERR_/.test(e))).toEqual([]);

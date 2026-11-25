@@ -30,6 +30,10 @@
   .profiles {
     grid-template-columns: 1fr 1fr;
   }
+  .feature {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
 }
 @media (max-width: 640px) {
   .menu-btn {
