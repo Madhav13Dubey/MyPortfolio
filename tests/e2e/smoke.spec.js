@@ -1,5 +1,8 @@
 import { expect, test } from '@playwright/test';
 
+// Keep tests hermetic: never wait on Google Fonts.
+test.beforeEach(({ page }) => page.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort()));
+
 test('renders every section without console errors', async ({ page }) => {
   const errors = [];
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
@@ -7,7 +10,16 @@ test('renders every section without console errors', async ({ page }) => {
 
   await page.goto('/');
   await expect(page).toHaveTitle(/Madhav Dubey/);
-  for (const id of ['home', 'about', 'skills', 'stack', 'projects', 'profiles', 'contact']) {
+  for (const id of [
+    'home',
+    'about',
+    'skills',
+    'stack',
+    'featured',
+    'projects',
+    'profiles',
+    'contact',
+  ]) {
     await expect(page.locator(`#${id}`)).toBeAttached();
   }
   expect(errors.filter((e) => !/fonts\.(googleapis|gstatic)|ERR_/.test(e))).toEqual([]);
@@ -45,4 +57,50 @@ test('theme toggle switches and persists', async ({ page }) => {
   await expect(html).not.toHaveAttribute('data-theme', before);
   await page.reload();
   await expect(html).not.toHaveAttribute('data-theme', before);
+});
+
+test('project viewer loads images only on request and steps through the tour', async ({ page }) => {
+  const requested = [];
+  page.on('request', (r) => /text2sql|architecture/.test(r.url()) && requested.push(r.url()));
+  await page.goto('/');
+  await page.waitForLoadState('load');
+  expect(requested).toEqual([]);
+
+  await page.locator('[data-viewer="arch"]').evaluate((b) => b.click());
+  const dlg = page.locator('#viewer');
+  await expect(dlg).toBeVisible();
+  await expect(page.locator('#viewerTitle')).toHaveText('System architecture');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+  await page.keyboard.press('Escape');
+  await expect(dlg).toBeHidden();
+
+  await page.locator('[data-viewer="tour"]').evaluate((b) => b.click());
+  await expect(page.locator('#viewerCount')).toHaveText('01 / 12');
+  await page.locator('#viewerNext').click();
+  await expect(page.locator('#viewerCount')).toHaveText('02 / 12');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+});
+
+test('presentation viewer opens on request and the PPT download is named correctly', async ({
+  page,
+}) => {
+  await page.goto('/');
+  // The download is offered only inside the presentation viewer.
+  await expect(page.locator('a[download]')).toHaveCount(2); // CV + viewer link (hidden until opened)
+  await page.locator('[data-viewer="deck"]').evaluate((b) => b.click());
+  const link = page.locator('#viewerDownload');
+  await expect(link).toHaveAttribute('download', 'Project_Detailed_Overview.pptx');
+  const res = await page.request.get(await link.evaluate((a) => a.href));
+  expect(res.ok()).toBe(true);
+  await expect(page.locator('#viewerCount')).toHaveText('01 / 24');
+  await page.locator('#viewerNext').click();
+  await expect(page.locator('#viewerCount')).toHaveText('02 / 24');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+  await expect(page.locator('#viewerDownload')).toBeVisible();
 });

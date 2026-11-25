@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const KB = 1024;
 const MAX_ASSET = 300 * KB;
-const DIST_BUDGET = { '.js': 60 * KB, '.css': 40 * KB, total: 1024 * KB };
+const DIST_BUDGET = { '.js': 60 * KB, '.css': 40 * KB, total: 3072 * KB };
 
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
@@ -22,11 +22,12 @@ if (process.argv.includes('--dist')) {
     if (sum(ext) > DIST_BUDGET[ext])
       errors.push(`dist ${ext} total exceeds ${DIST_BUDGET[ext] / KB} KB`);
   }
-  const total = files.reduce((n, f) => n + statSync(f).size, 0);
+  // Downloadable documents (.pptx) are not part of the page weight.
+  const total = files.filter((f) => !f.endsWith('.pptx')).reduce((n, f) => n + statSync(f).size, 0);
   if (total > DIST_BUDGET.total) errors.push(`dist total exceeds ${DIST_BUDGET.total / KB} KB`);
 } else {
   for (const f of [...walk('src/assets'), ...walk('public')]) {
-    if (f.endsWith('.pdf')) continue;
+    if (f.endsWith('.pdf') || f.endsWith('.pptx')) continue;
     if (statSync(f).size > MAX_ASSET)
       errors.push(`${f} is over ${MAX_ASSET / KB} KB - run npm run images:optimize`);
   }

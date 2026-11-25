@@ -31,8 +31,7 @@
         "sameAs": [
           "https://github.com/Madhav13Dubey",
           "https://www.linkedin.com/in/madhav-dubey-53b95631a/",
-          "https://leetcode.com/u/Madhavdubey13/",
-          "https://codeforces.com/profile/MadhavDubey"
+          "https://leetcode.com/u/Madhavdubey13/"
         ]
       }
     </script>
@@ -172,7 +171,7 @@
           </ul>
           <div class="cta">
             <a class="btn primary" href="#projects">View my work</a>
-            <a class="btn ghost" href="/Madhav_Resume.pdf" download>Download CV</a>
+            <a class="btn ghost" href="Madhav_Resume.pdf" download>Download CV</a>
           </div>
           <ul class="stats">
             <li>
@@ -283,9 +282,31 @@
             <div class="tab-panel" role="tabpanel" id="tab-qual" aria-labelledby="t-qual" hidden>
               <ol class="timeline">
                 <li>
+                  <time>Mindset</time>
+                  <b>Problem Solving</b>
+                  <span>
+                    Breaks hard problems into small steps and thinks through edge cases before
+                    writing code.
+                  </span>
+                </li>
+                <li>
                   <time>Soft skills</time>
                   <b>Teamwork &amp; Leadership</b>
                   <span>Clear communication, goal-driven collaboration</span>
+                </li>
+                <li>
+                  <time>Drive</time>
+                  <b>Ownership</b>
+                  <span>
+                    Takes a feature from idea to a working tool, and stays with it until it ships.
+                  </span>
+                </li>
+                <li>
+                  <time>Growth</time>
+                  <b>Fast Learner</b>
+                  <span>
+                    Picks up new tools and ideas quickly, then puts them to work in real projects.
+                  </span>
                 </li>
               </ol>
             </div>
@@ -586,12 +607,110 @@
         </div>
       </section>
 
+      <!-- FEATURED: TEXT-TO-SQL -->
+      <section class="section" id="featured">
+        <p class="eyebrow reveal">Featured work · Truvis.ai</p>
+        <h2 class="reveal">
+          Talk to your
+          <span class="grad">database</span>
+        </h2>
+        <div class="glass feature reveal">
+          <div class="feature-copy">
+            <span class="badge">
+              <i class="dot"></i>
+              Built at Truvis.ai
+            </span>
+            <h3>Natural language to SQL, powered by RAG</h3>
+            <p>
+              While working at Truvis.ai I built a tool that turns everyday questions into SQL
+              queries. It uses retrieval-augmented generation (RAG) to ground the model, runs on a
+              free open-source LLM from Hugging Face, and switches to a paid OpenAI key
+              automatically when the Hugging Face limit is reached — so it stays cost-aware without
+              going down.
+            </p>
+            <ul class="feature-points">
+              <li>
+                <b>Ask, don't write</b>
+                Non-technical teammates query data by just asking.
+              </li>
+              <li>
+                <b>RAG-grounded</b>
+                Relevant context is retrieved first, so answers stay tied to the data.
+              </li>
+              <li>
+                <b>Free first, paid as backup</b>
+                Open-source Hugging Face by default; OpenAI only when needed.
+              </li>
+            </ul>
+            <ul class="tags">
+              <li>RAG</li>
+              <li>LLM</li>
+              <li>Hugging Face</li>
+              <li>OpenAI API</li>
+              <li>Text-to-SQL</li>
+              <li>Vector DB</li>
+              <li>SQL guardrails</li>
+            </ul>
+          </div>
+          <div class="feature-flow" role="group" aria-label="How the tool works">
+            <ol class="flow">
+              <li>
+                <i>1</i>
+                <div>
+                  <b>Ask in plain English</b>
+                  <span>"How many assets are there in the table?"</span>
+                </div>
+              </li>
+              <li>
+                <i>2</i>
+                <div>
+                  <b>RAG retrieval</b>
+                  <span>Finds the relevant context for the question.</span>
+                </div>
+              </li>
+              <li>
+                <i>3</i>
+                <div>
+                  <b>Open-source LLM</b>
+                  <span>Hugging Face model generates the query (free).</span>
+                </div>
+              </li>
+              <li class="alt">
+                <i>↻</i>
+                <div>
+                  <b>Automatic fallback</b>
+                  <span>Hugging Face limit reached? Switches to the OpenAI API (paid).</span>
+                </div>
+              </li>
+              <li>
+                <i>4</i>
+                <div>
+                  <b>SQL, ready to run</b>
+                  <span>The generated query is returned to the user.</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="feature-actions reveal">
+          <button class="btn primary" type="button" data-viewer="deck">
+            View project presentation · 24 slides
+          </button>
+          <button class="btn primary" type="button" data-viewer="arch">
+            View system architecture
+          </button>
+          <button class="btn ghost" type="button" data-viewer="tour">
+            Explore the project · 12 screens
+          </button>
+        </div>
+      </section>
+
       <!-- PROJECTS -->
       <section class="section" id="projects">
-        <p class="eyebrow reveal">Selected work</p>
+        <p class="eyebrow reveal">College projects · 2022–2026</p>
         <h2 class="reveal">
-          Projects I'm
-          <span class="grad">proud of</span>
+          Ideas I shipped
+          <span class="grad">between classes</span>
         </h2>
         <div class="projects">
           <article class="glass project reveal">
@@ -752,18 +871,6 @@
           </a>
           <a
             class="glass profile reveal"
-            style="--c: #1f8acb"
-            href="https://codeforces.com/profile/MadhavDubey"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="profile-name">Codeforces</span>
-            <span class="profile-handle">MadhavDubey</span>
-            <span class="profile-desc">Rated rounds and speed-coding practice.</span>
-            <span class="profile-go">View profile →</span>
-          </a>
-          <a
-            class="glass profile reveal"
             style="--c: #2f8d46"
             href="https://www.geeksforgeeks.org/user/madhavduqrag/"
             target="_blank"
@@ -845,6 +952,57 @@
         </div>
       </section>
     </main>
+
+    <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+      <div class="viewer-head">
+        <div>
+          <p class="viewer-kicker" id="viewerKicker"></p>
+          <h3 id="viewerTitle">Project viewer</h3>
+        </div>
+        <button class="viewer-x" id="viewerClose" type="button" aria-label="Close viewer">×</button>
+      </div>
+      <div class="viewer-stage">
+        <button class="viewer-nav" id="viewerPrev" type="button" aria-label="Previous screen">
+          ‹
+        </button>
+        <figure>
+          <div class="win">
+            <div class="win-bar" aria-hidden="true">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="win-body">
+              <img
+                id="viewerImg"
+                alt=""
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              />
+            </div>
+          </div>
+          <figcaption id="viewerCap" aria-live="polite"></figcaption>
+        </figure>
+        <button class="viewer-nav" id="viewerNext" type="button" aria-label="Next screen">›</button>
+      </div>
+      <div class="viewer-foot">
+        <div class="viewer-progress" aria-hidden="true"><b id="viewerBar"></b></div>
+        <div class="viewer-controls">
+          <div class="viewer-dots" id="viewerDots"></div>
+          <span class="viewer-count" id="viewerCount"></span>
+          <a
+            class="btn ghost"
+            id="viewerDownload"
+            href="Project_Detailed_Overview.pptx"
+            download="Project_Detailed_Overview.pptx"
+          >
+            ⬇ Download PPT
+          </a>
+          <button class="btn ghost" id="viewerPlay" type="button" aria-pressed="false">
+            ▶ Auto-play
+          </button>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="footer">
       <p>
