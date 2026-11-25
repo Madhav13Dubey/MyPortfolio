@@ -648,3 +648,235 @@
     transform: none;
   }
 }
+
+/* Featured actions + project viewer (modal) */
+.feature-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 28px;
+}
+.viewer {
+  width: min(1120px, 95vw);
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  box-shadow:
+    0 40px 120px -30px rgba(0, 0, 0, 0.7),
+    0 0 0 1px color-mix(in srgb, var(--a1) 25%, transparent);
+}
+.viewer[open] {
+  display: flex;
+  flex-direction: column;
+  animation: viewer-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.viewer::backdrop {
+  background: rgba(5, 6, 12, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+@keyframes viewer-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+.viewer-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px 12px;
+}
+.viewer-kicker {
+  color: var(--a2);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.viewer-head h3 {
+  font-size: 1.35rem;
+}
+.viewer-x {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.viewer-x:hover {
+  background: var(--surface-hover);
+}
+.viewer-stage {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  min-height: 0;
+}
+.viewer figure {
+  min-width: 0;
+}
+.win {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 60px -24px var(--a1);
+}
+.win-bar {
+  display: flex;
+  gap: 7px;
+  padding: 10px 14px;
+  background: #1f2330;
+}
+.win-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.win-bar i:nth-child(2) {
+  background: #febc2e;
+}
+.win-bar i:nth-child(3) {
+  background: #28c840;
+}
+.win-body {
+  max-height: min(58vh, 640px);
+  overflow: auto;
+}
+.win-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  transition: opacity 0.3s;
+}
+.win-body img.loading {
+  opacity: 0.25;
+}
+.viewer.zoomed .win-body img {
+  width: 170%;
+  max-width: none;
+  cursor: zoom-out;
+}
+.viewer figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+  min-height: 3em;
+}
+.viewer-nav {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.viewer-nav:hover {
+  background: var(--surface-hover);
+  transform: scale(1.08);
+}
+.viewer.single .viewer-nav,
+.viewer.single .viewer-dots,
+.viewer.single #viewerPlay,
+.viewer.single .viewer-progress {
+  display: none;
+}
+.viewer-foot {
+  padding: 8px 24px 20px;
+}
+.viewer-progress {
+  height: 4px;
+  margin-bottom: 14px;
+  border-radius: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+.viewer-progress b {
+  display: block;
+  height: 100%;
+  background: var(--grad);
+  transition: width 0.45s ease;
+}
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.viewer-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.viewer-dots button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.viewer-dots button[aria-current='true'] {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.12);
+}
+.viewer-count {
+  margin-left: auto;
+  color: var(--muted);
+  font:
+    600 0.9rem 'Space Grotesk',
+    sans-serif;
+}
+.viewer .btn {
+  padding: 9px 18px;
+  font-size: 0.86rem;
+}
+@media (max-width: 640px) {
+  .viewer-stage {
+    grid-template-columns: 1fr 1fr;
+  }
+  .viewer figure {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+  .viewer-nav {
+    justify-self: center;
+  }
+  .viewer-head h3 {
+    font-size: 1.1rem;
+  }
+}

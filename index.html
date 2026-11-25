@@ -626,6 +626,8 @@
               <li>Hugging Face</li>
               <li>OpenAI API</li>
               <li>Text-to-SQL</li>
+              <li>Vector DB</li>
+              <li>SQL guardrails</li>
             </ul>
           </div>
           <div class="feature-flow" role="group" aria-label="How the tool works">
@@ -667,6 +669,14 @@
               </li>
             </ol>
           </div>
+        </div>
+        <div class="feature-actions reveal">
+          <button class="btn primary" type="button" data-viewer="arch">
+            View system architecture
+          </button>
+          <button class="btn ghost" type="button" data-viewer="tour">
+            Explore the project · 12 screens
+          </button>
         </div>
       </section>
 
@@ -917,6 +927,49 @@
         </div>
       </section>
     </main>
+
+    <dialog class="viewer" id="viewer" aria-labelledby="viewerTitle">
+      <div class="viewer-head">
+        <div>
+          <p class="viewer-kicker" id="viewerKicker"></p>
+          <h3 id="viewerTitle">Project viewer</h3>
+        </div>
+        <button class="viewer-x" id="viewerClose" type="button" aria-label="Close viewer">×</button>
+      </div>
+      <div class="viewer-stage">
+        <button class="viewer-nav" id="viewerPrev" type="button" aria-label="Previous screen">
+          ‹
+        </button>
+        <figure>
+          <div class="win">
+            <div class="win-bar" aria-hidden="true">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="win-body">
+              <img
+                id="viewerImg"
+                alt=""
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              />
+            </div>
+          </div>
+          <figcaption id="viewerCap" aria-live="polite"></figcaption>
+        </figure>
+        <button class="viewer-nav" id="viewerNext" type="button" aria-label="Next screen">›</button>
+      </div>
+      <div class="viewer-foot">
+        <div class="viewer-progress" aria-hidden="true"><b id="viewerBar"></b></div>
+        <div class="viewer-controls">
+          <div class="viewer-dots" id="viewerDots"></div>
+          <span class="viewer-count" id="viewerCount"></span>
+          <button class="btn ghost" id="viewerPlay" type="button" aria-pressed="false">
+            ▶ Auto-play
+          </button>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="footer">
       <p>

@@ -58,3 +58,29 @@ test('theme toggle switches and persists', async ({ page }) => {
   await page.reload();
   await expect(html).not.toHaveAttribute('data-theme', before);
 });
+
+test('project viewer loads images only on request and steps through the tour', async ({ page }) => {
+  const requested = [];
+  page.on('request', (r) => /text2sql|architecture/.test(r.url()) && requested.push(r.url()));
+  await page.goto('/');
+  await page.waitForLoadState('load');
+  expect(requested).toEqual([]);
+
+  await page.locator('[data-viewer="arch"]').evaluate((b) => b.click());
+  const dlg = page.locator('#viewer');
+  await expect(dlg).toBeVisible();
+  await expect(page.locator('#viewerTitle')).toHaveText('System architecture');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+  await page.keyboard.press('Escape');
+  await expect(dlg).toBeHidden();
+
+  await page.locator('[data-viewer="tour"]').evaluate((b) => b.click());
+  await expect(page.locator('#viewerCount')).toHaveText('01 / 12');
+  await page.locator('#viewerNext').click();
+  await expect(page.locator('#viewerCount')).toHaveText('02 / 12');
+  await expect
+    .poll(() => page.locator('#viewerImg').evaluate((i) => i.naturalWidth))
+    .toBeGreaterThan(0);
+});
