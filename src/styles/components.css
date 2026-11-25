@@ -906,3 +906,15 @@
     font-size: 0.7rem;
   }
 }
+
+/* Presentation download: the one place the PPT is offered */
+.viewer #viewerDownload {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 10px 30px -12px var(--a1);
+}
+.viewer #viewerDownload:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}

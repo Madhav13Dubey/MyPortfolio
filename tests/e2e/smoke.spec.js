@@ -89,12 +89,13 @@ test('presentation viewer opens on request and the PPT download is named correct
   page,
 }) => {
   await page.goto('/');
-  const link = page.locator('a[download="Project_Detailed_Overview.pptx"]').first();
-  await expect(link).toHaveAttribute('href', /Project_Detailed_Overview\.pptx$/);
+  // The download is offered only inside the presentation viewer.
+  await expect(page.locator('a[download]')).toHaveCount(2); // CV + viewer link (hidden until opened)
+  await page.locator('[data-viewer="deck"]').evaluate((b) => b.click());
+  const link = page.locator('#viewerDownload');
+  await expect(link).toHaveAttribute('download', 'Project_Detailed_Overview.pptx');
   const res = await page.request.get(await link.evaluate((a) => a.href));
   expect(res.ok()).toBe(true);
-
-  await page.locator('[data-viewer="deck"]').evaluate((b) => b.click());
   await expect(page.locator('#viewerCount')).toHaveText('01 / 24');
   await page.locator('#viewerNext').click();
   await expect(page.locator('#viewerCount')).toHaveText('02 / 24');
