@@ -506,19 +506,31 @@
   font-weight: 500;
 }
 .flow {
+  --fill: 0px;
   position: relative;
   display: grid;
   gap: 14px;
 }
-.flow::before {
+/* track + animated fill behind the step circles (circle centre = 16px padding + 19px) */
+.flow::before,
+.flow::after {
   content: '';
   position: absolute;
-  left: 19px;
-  top: 20px;
-  bottom: 20px;
-  width: 2px;
+  left: 34px;
+  top: 19px;
+  width: 3px;
+  border-radius: 3px;
+}
+.flow::before {
+  bottom: 19px;
+  background: var(--border);
+}
+.flow::after {
+  height: max(0px, calc(var(--fill) - 19px));
+  max-height: calc(100% - 38px);
   background: var(--grad);
-  opacity: 0.5;
+  box-shadow: 0 0 12px var(--a2);
+  transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .flow li {
   position: relative;
@@ -529,24 +541,38 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--surface);
+  z-index: 1;
+  opacity: 0.5;
+  transform: scale(0.98);
+  transition:
+    opacity 0.5s,
+    transform 0.5s,
+    border-color 0.5s,
+    box-shadow 0.5s;
 }
 .flow li i {
+  position: relative;
+  z-index: 1;
   flex: none;
   display: grid;
   place-items: center;
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--grad);
-  color: #fff;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  color: var(--muted);
   font:
     700 0.95rem 'Space Grotesk',
     sans-serif;
   font-style: normal;
+  transition:
+    background 0.4s,
+    color 0.4s,
+    border-color 0.4s;
 }
 .flow li.alt {
   border-style: dashed;
-  border-color: var(--a2);
 }
 .flow li b {
   display: block;
@@ -555,4 +581,70 @@
 .flow li span {
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+/* finished step */
+.flow li.is-done {
+  opacity: 0.9;
+  transform: none;
+}
+.flow li.is-done i {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  font-size: 0;
+}
+.flow li.is-done i::after {
+  content: '✓';
+  font-size: 1rem;
+}
+
+/* running step */
+.flow li.is-active {
+  opacity: 1;
+  transform: translateX(6px);
+  border-color: var(--a2);
+  box-shadow:
+    0 0 0 1px var(--a2),
+    0 14px 40px -14px var(--a2);
+}
+.flow li.is-active i {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  animation: ping 1.2s ease-out infinite;
+}
+.flow li.is-active::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--grad);
+  transform-origin: left;
+  animation: load 1.5s linear forwards;
+}
+@keyframes ping {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--a2) 70%, transparent);
+  }
+  to {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+@keyframes load {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow li {
+    opacity: 1;
+    transform: none;
+  }
 }
