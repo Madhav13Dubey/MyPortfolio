@@ -195,8 +195,10 @@
 }
 .project img {
   width: 100%;
+  height: auto;
   aspect-ratio: 16/10;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--inset);
   transition: transform 0.5s;
 }
 .project:hover img {
